@@ -1,7 +1,6 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 const { Octokit } = require("octokit");
-const { createActionAuth } = require("@octokit/auth-action");
 const fs = require("fs");
 const path = require("path");
 
@@ -73,8 +72,6 @@ async function run() {
 
     const result = require(fullPathname);
 
-    const auth = createActionAuth();
-    const authentication = await auth();
     const octokit = new Octokit({
       auth: core.getInput("token", { required: true }),
     });
