@@ -30,17 +30,16 @@ async function run() {
 
     const data = getSummary(result.stats);
 
-    core.setOutput(
-      "commentBody",
-      `
-      ## :evergreen_tree: ${core.getInput("title", { required: true })}</h1>
-      | Passed ✅ | Failed ❌ | Pending ✋🏻 | Skipped ↩️ | Duration ⏱️ |
-      |---|---|---|---|---|
-      | ${data.passed} | ${data.failures} | ${data.pending} | ${
-        data.skipped
-      } | ${data.duration} |
-      `
-    );
+    const commentBody = [];
+    const title = `# :evergreen_tree: ${core.getInput("title", {
+      required: true,
+    })}`;
+    const table_headers = `| Passed ✅ | Failed ❌ | Pending ✋🏻 | Skipped ↩️ | Duration ⏱️ |`;
+    const table_separator = `|---|---|---|---|---|`;
+    const table_content = `| ${data.passed} | ${data.failures} | ${data.pending} | ${data.skipped} | ${data.duration} |`;
+
+    commentBody.push(title, table_headers, table_separator, table_content);
+    core.setOutput("commentBody", commentBody.join("\n"));
   } catch (error) {
     core.setFailed(error.message);
   }
