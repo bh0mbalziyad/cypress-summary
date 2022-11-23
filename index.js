@@ -1,6 +1,5 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const { Octokit } = require("octokit");
 const markdownTable = require("markdown-table");
 const fs = require("fs");
 const path = require("path");
@@ -73,10 +72,6 @@ async function run() {
 
     const result = require(fullPathname);
 
-    const octokit = new Octokit({
-      auth: core.getInput("token", { required: true }),
-    });
-
     core.setOutput(
       "commentBody",
       `${core.getInput("title", { required: true })}
@@ -87,20 +82,6 @@ async function run() {
 
     </details>`
     );
-
-    // await octokit.rest.issues.createComment({
-    //   issue_number: core.getInput("issue_number", { required: true }),
-    //   owner: core.getInput("repo_owner", { required: true }),
-    //   repo: core.getInput("repo_name", { required: true }),
-    //   //
-    //   body: `${core.getInput("title", { required: true })}
-    //       <details>
-    //       <summary>${getSummary(result.stats)}</summary>
-
-    //       ${getTable(getExamples(result.results))}
-
-    //       </details>`,
-    // });
   } catch (error) {
     core.setFailed(error.message);
   }
