@@ -77,19 +77,30 @@ async function run() {
       auth: core.getInput("token", { required: true }),
     });
 
-    await octokit.rest.issues.createComment({
-      issue_number: core.getInput("issue_number", { required: true }),
-      owner: core.getInput("repo_owner", { required: true }),
-      repo: core.getInput("repo_name", { required: true }),
-      //
-      body: `${core.getInput("title", { required: true })}
-          <details>
-          <summary>${getSummary(result.stats)}</summary>
+    core.setOutput(
+      "commentBody",
+      `${core.getInput("title", { required: true })}
+    <details>
+    <summary>${getSummary(result.stats)}</summary>
 
-          ${getTable(getExamples(result.results))}
+    ${getTable(getExamples(result.results))}
 
-          </details>`,
-    });
+    </details>`
+    );
+
+    // await octokit.rest.issues.createComment({
+    //   issue_number: core.getInput("issue_number", { required: true }),
+    //   owner: core.getInput("repo_owner", { required: true }),
+    //   repo: core.getInput("repo_name", { required: true }),
+    //   //
+    //   body: `${core.getInput("title", { required: true })}
+    //       <details>
+    //       <summary>${getSummary(result.stats)}</summary>
+
+    //       ${getTable(getExamples(result.results))}
+
+    //       </details>`,
+    // });
   } catch (error) {
     core.setFailed(error.message);
   }

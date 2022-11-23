@@ -22,6 +22,9 @@ inputs:
   token:
     description: "Access token to authorize adding a comment"
     required: true
+outputs:
+  commentBody:
+    description: "Body of the comment to be used"
 runs:
   using: "node12"
   main: "index.js"
