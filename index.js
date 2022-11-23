@@ -1,6 +1,7 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 const { Octokit } = require("octokit");
+const markdownTable = require("markdown-table");
 const fs = require("fs");
 const path = require("path");
 
