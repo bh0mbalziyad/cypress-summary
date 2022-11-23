@@ -23,5 +23,5 @@ inputs:
     description: "Access token to authorize adding a comment"
     required: true
 runs:
-  using: "node16"
+  using: "node12"
   main: "index.js"
