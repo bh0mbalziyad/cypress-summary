@@ -75,7 +75,9 @@ async function run() {
 
     const auth = createActionAuth();
     const authentication = await auth();
-    const octokit = new Octokit({ authStrategy: authentication });
+    const octokit = new Octokit({
+      auth: core.getInput("token", { required: true }),
+    });
 
     await octokit.rest.issues.createComment({
       issue_number: core.getInput("issue_number", { required: true }),

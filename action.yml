@@ -18,6 +18,10 @@ inputs:
     required: true
   issue_number:
     description: "Issue/PR number on which the comment needs to be added"
+    required: true
+  token:
+    description: "Access token to authorize adding a comment"
+    required: true
 runs:
   using: "node16"
   main: "index.js"
