@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@actions/core": "^1.2.5",
-    "@actions/github": "^4.0.0",
-    "markdown-table": "^2.0.0"
+    "@actions/github": "^4.0.0"
   }
 }

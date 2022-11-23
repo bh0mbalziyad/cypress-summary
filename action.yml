@@ -10,18 +10,6 @@ inputs:
     description: "Title for the comment"
     default: "## :evergreen_tree: Cypress report"
     required: false
-  repo_owner:
-    description: "Owner of the repository on which the issue/PR exists"
-    required: true
-  repo_name:
-    description: "Repository name"
-    required: true
-  issue_number:
-    description: "Issue/PR number on which the comment needs to be added"
-    required: true
-  token:
-    description: "Access token to authorize adding a comment"
-    required: true
 outputs:
   commentBody:
     description: "Body of the comment to be used"
