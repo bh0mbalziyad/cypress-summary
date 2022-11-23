@@ -1,0 +1,23 @@
+name: "Cypress Summary"
+description: "Adds a summary of specs run by Cypress via an issue comment"
+icon: alert-triangle
+color: green
+inputs:
+  pathname:
+    description: "Full pathname to the mochawesome report JSON file"
+    required: true
+  title:
+    description: "Title for the comment"
+    default: "## :evergreen_tree: Cypress report"
+    required: false
+  repo_owner:
+    description: "Owner of the repository on which the issue/PR exists"
+    required: true
+  repo_name:
+    description: "Repository name"
+    required: true
+  issue_number:
+    description: "Issue/PR number on which the comment needs to be added"
+runs:
+  using: "node16"
+  main: "index.js"
