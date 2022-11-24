@@ -1,6 +1,25 @@
 {
   "dependencies": {
-    "@actions/core": "^1.2.5",
-    "@actions/github": "^4.0.0"
-  }
+    "@actions/core": "^1.10.0",
+    "markdown-table": "^3.0.2"
+  },
+  "type": "module",
+  "name": "cypress-summary",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bh0mbalziyad/cypress-summary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bh0mbalziyad/cypress-summary/issues"
+  },
+  "homepage": "https://github.com/bh0mbalziyad/cypress-summary#readme",
+  "description": ""
 }
